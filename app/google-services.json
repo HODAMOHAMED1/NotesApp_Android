@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "355370635540",
+    "firebase_url": "https://notes-app-cdabb.firebaseio.com",
+    "project_id": "notes-app-cdabb",
+    "storage_bucket": "notes-app-cdabb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:355370635540:android:b5452e65351c65e9",
+        "android_client_info": {
+          "package_name": "com.example.hodaco.notesapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "355370635540-g213s4kjnarlhv5qjq4o6nomc8kp8t9j.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.hodaco.notesapp",
+            "certificate_hash": "997591c711fa4ec847d9ccd83a5bc17cf9f11c68"
+          }
+        },
+        {
+          "client_id": "355370635540-djmeo8a1d288qogujvgtn68tcfng1me7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCt-MSCyNJfL_F23xVoVyiIv0qra_B4AhM"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "355370635540-djmeo8a1d288qogujvgtn68tcfng1me7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
