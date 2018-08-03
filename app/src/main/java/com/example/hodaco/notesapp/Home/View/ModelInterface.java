@@ -11,4 +11,6 @@ import java.util.ArrayList;
 public interface ModelInterface {
     void getNotes();
     void setNote(Notes note);
+    void removeNote(Notes note);
+    void updateNote(Notes note);
 }

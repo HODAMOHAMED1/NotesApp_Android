@@ -44,7 +44,9 @@ public class MainActivity extends AppCompatActivity implements ViewInterface{
     EditText title;
     EditText body;
     AlertDialog alert;
+    AlertDialog alert2;
     ArrayList<Notes> Notelist;
+    Notes currrentNote;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,6 +72,14 @@ public class MainActivity extends AppCompatActivity implements ViewInterface{
                 Notes note = Notelist.get(i);
                 intent.putExtra("note", (Serializable) note);
                 startActivity(intent);
+            }
+        });
+        list.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
+                currrentNote = Notelist.get(i);
+                showDeleteDialog();
+                return false;
             }
         });
     }
@@ -114,6 +124,50 @@ public class MainActivity extends AppCompatActivity implements ViewInterface{
         });
 
         alert.show();
+    }
+   private void showDeleteDialog(){
+        AlertDialog.Builder dia = new AlertDialog.Builder(MainActivity.this);
+        View view = LayoutInflater.from(MainActivity.this).inflate(R.layout.edit_deletenote,null);
+        dia.setView(view);
+        alert2 = dia.create();
+       Button update = view.findViewById(R.id.update);
+       Button delete = view.findViewById(R.id.delete);
+       title = view.findViewById(R.id.titlenote);
+       body = view.findViewById(R.id.bodynote);
+       title.setText(currrentNote.getTitle());
+       body.setText(currrentNote.getBody());
+       update.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View view) {
+               String title_note = title.getText().toString();
+               String body_note = body.getText().toString();
+
+               if (!title_note.isEmpty() && !body_note.isEmpty()) {
+                   Notes note = new Notes();
+                   note.setId(currrentNote.getId());
+                   note.setBody(body_note);
+                   note.setTitle(title_note);
+                   note.setDate(getCurrentDate());
+                   note.setTime(getActionTime());
+                   presenter.updateNote(note);
+                   alert2.cancel();
+                   Toast.makeText(MainActivity.this, "note edited", Toast.LENGTH_SHORT).show();
+               }
+               else
+               {
+                   Toast.makeText(MainActivity.this, "please enter fields", Toast.LENGTH_SHORT).show();
+               }
+           }
+       });
+       delete.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View view) {
+               presenter.removeNote(currrentNote);
+               alert2.cancel();
+           }
+       });
+        alert2.show();
+
     }
 
     public String getCurrentDate() {

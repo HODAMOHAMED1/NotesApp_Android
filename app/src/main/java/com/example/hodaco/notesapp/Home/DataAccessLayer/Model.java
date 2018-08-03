@@ -63,4 +63,18 @@ public class Model implements ModelInterface{
         note.setId(id);
         myRef.child(id).setValue(note);
     }
+
+    @Override
+    public void removeNote(Notes note) {
+        database = FirebaseDatabase.getInstance();
+        myRef = database.getReference("Notes");
+        myRef.child(note.getId()).removeValue();
+    }
+
+    @Override
+    public void updateNote(Notes note) {
+        database = FirebaseDatabase.getInstance();
+        myRef = database.getReference("Notes");
+        myRef.child(note.getId()).setValue(note);
+    }
 }

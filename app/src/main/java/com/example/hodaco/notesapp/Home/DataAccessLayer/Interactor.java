@@ -39,6 +39,16 @@ public class Interactor implements InteractorInterface {
     }
 
     @Override
+    public void updateNote(Notes note) {
+       model.updateNote(note);
+    }
+
+    @Override
+    public void removeNote(Notes note) {
+       model.removeNote(note);
+    }
+
+    @Override
     public void ShowNotes(ArrayList<Notes> notes) {
         presenter.ShowNotes(notes);
 

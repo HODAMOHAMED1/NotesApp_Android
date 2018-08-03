@@ -39,6 +39,16 @@ public class Presenter implements PresenterInterface{
     }
 
     @Override
+    public void updateNote(Notes note) {
+        interactor.updateNote(note);
+    }
+
+    @Override
+    public void removeNote(Notes note) {
+        interactor.removeNote(note);
+    }
+
+    @Override
     public void ShowNotes(ArrayList<Notes> notes) {
                view.ShowNotes(notes);
     }

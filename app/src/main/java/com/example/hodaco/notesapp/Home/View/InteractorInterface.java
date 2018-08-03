@@ -11,6 +11,8 @@ import java.util.ArrayList;
 public interface InteractorInterface {
     void getNotes();
     void setNote(Notes note);
+    void updateNote(Notes note);
+    void removeNote(Notes note);
     void ShowNotes(ArrayList<Notes> notes);
     void noConnection();
 }
